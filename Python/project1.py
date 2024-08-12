@@ -61,6 +61,20 @@ def close_app():
             print_pause('Thanks for using our app',1)
             print_pause('Goodbye',1)
             return True
-
-
-
+# while True:
+#     inp1 = check_input('1','2','3',False,'Healthy recipes','Meal reminders','meal preparation',False)
+#     Hlthyrcp ='Healthy recipes'
+#     MlRem ='Meal reminders'
+#     MlPrp ='meal preparation'
+#     if inp1 == Hlthyrcp :
+#         end = close_app()
+#     elif inp1 == MlRem :
+#         end = close_app()
+#     elif inp1 == MlPrp :
+#         end = close_app()
+#     else:
+#         print('hi')
+#     if end is True :
+#         break
+#     else:
+#         print('')
