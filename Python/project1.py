@@ -36,4 +36,9 @@ def check_input(ch1,ch2,ch3,ch4,ans1,ans2,ans3,ans4):
             return ans4
         else:
             z = 0
-
+def number_check(txt):
+    inp = str(input(f'Enter your {txt}')
+    if inp.isnumeric() is True:
+        return round(inp)
+    else:
+        z = 0
