@@ -44,5 +44,26 @@ def number_check(txt):
             return round(inp)
         else:
             z = 0
+def close_app():
+    Y =0
+    print_pause('If you want to continue enter Yes',2)
+    print_pause('If you want to close the app enter no',2)
+    ListY = ('yes','ye','y','ys','es')
+    ListN = ('no','n')
+    while Y == 0 :
+        X = str(input('Please write Yes or No '))
+        X = X.lower()
+        if X in ListY :
+            print_pause('restarting',2)
+            print('------------------------------')
+            Y = 1
+        elif X in ListN :
+            print_pause('Thanks for using our app',1)
+            print_pause('Goodbye',1)
+            return True
+        elif X == 'how' :
+            print_pause('one night',1)
+            print_pause('Two days',1)
+            return True
 
 
