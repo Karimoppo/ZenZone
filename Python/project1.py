@@ -61,9 +61,6 @@ def close_app():
             print_pause('Thanks for using our app',1)
             print_pause('Goodbye',1)
             return True
-        elif X == 'how' :
-            print_pause('one night',1)
-            print_pause('Two days',1)
-            return True
+
 
 
