@@ -1,7 +1,7 @@
 import time
 import math
 import random
-
+mealLIST = []
 Hlthyrcp ='Healthy recipes'
 MlRem ='Meal reminders'
 MlPrp ='meal preparation'
@@ -43,7 +43,7 @@ def check_input(ch1,ch2,ch3,ch4,ans1,ans2,ans3,ans4):
             z = 0
 def number_check(txt):
     while True:
-        inp = (input(f'Enter your {txt} '))
+        inp = (input(f'Enter {txt} : '))
         if inp.isnumeric() is True:
             inp = int(inp)
             return round(inp)
@@ -92,14 +92,21 @@ def passw():
 username = str(input('Enter your user name : '))
 email = str(input('Enter your email : '))
 password = passw()
-age = number_check('Age')
+age = number_check('your Age')
 YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
 while True:
+
     print_pause('Welcome to our zen zone healthy lifestyle app',1)
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
+        print_pause('You have chosen Healthy Recipies ',1)
+        print_pause('You can some healthy recipies that you can have in your diet',2)
         end = close_app()
     elif inp1 == MlRem :
+        print_pause('You have chosen the meal reminder',2)
+        print_pause('you can choose the time in seconds',2)
+        RemT =number_check('the time for the reminder')
+        time.sleep(RemT)
         end = close_app()
     elif inp1 == MlPrp :
         end = close_app()
