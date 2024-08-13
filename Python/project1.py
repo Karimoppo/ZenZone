@@ -2,6 +2,11 @@ import time
 import math
 import random
 
+Hlthyrcp ='Healthy recipes'
+MlRem ='Meal reminders'
+MlPrp ='meal preparation'
+T = True
+F = False
 def print_pause(texts,delay):
     # this prints then pauses
     print(texts)
@@ -61,14 +66,20 @@ def close_app():
             print_pause('Thanks for using our app',1)
             print_pause('Goodbye',1)
             return True
+username = str(input('Enter your user name : '))
+email = str(input('Enter your email : '))
+password =str(input('Enter your password : '))
+confpassI =str(input('Confirm the password :'))
+while T is True:
+    password =str(input('Enter your password : '))
+    confpassI =str(input('Confirm the password : '))
+    if password == confpassI :
+        break
+    else :
+        print_pause('Enter the same password and confirm password',1)
+age = number_check('Age')
+YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
 while True:
-    print_pause('Welcome to our app',1)
-    print_pause('')
-    Hlthyrcp ='Healthy recipes'
-    MlRem ='Meal reminders'
-    MlPrp ='meal preparation'
-    T = True
-    F = False
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
         end = close_app()
