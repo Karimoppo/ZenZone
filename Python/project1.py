@@ -66,21 +66,36 @@ def close_app():
             print_pause('Thanks for using our app',1)
             print_pause('Goodbye',1)
             return True
+def passw():
+    print_pause('The password needs to be more than 8 characters',2)
+    print_pause('and it needs to have a mix of upper and lower case letters',2)
+    c = 0
+    z = 0
+    while True:
+        passw=str(input('Enter your password : '))
+        confpassw=str(input('Confirm your password : '))
+        for x in passw:
+            if x.upper() == passw[z]:
+                c += 1
+            z += 1
+        if passw == confpassw and len(passw) >= 8 :
+            if c < 1 or c == len(passw):
+                print_pause('The password needs to have',1)
+                print_pause('Both upper case letters and lower case',1)
+            elif c >= 1 and c < len(passw):
+                return passw
+        elif passw == confpassw and len(passw) < 8:
+            print_pause('The password needs to have',1)
+            print_pause('Enter more than 8 caracters',1)
+        else :
+            print_pause('Confirm the password correctly',1)
 username = str(input('Enter your user name : '))
 email = str(input('Enter your email : '))
-password =str(input('Enter your password : '))
-confpassI =str(input('Confirm the password :'))
-while T is True:
-    password =str(input('Enter your password : '))
-    confpassI =str(input('Confirm the password : '))
-    if password == confpassI :
-        break
-    else :
-        print_pause('Enter the same password and confirm password',1)
+password = passw()
 age = number_check('Age')
 YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
 while True:
-    print_pause('Welcome to our zen zone healthy lifestyle app',1)1
+    print_pause('Welcome to our zen zone healthy lifestyle app',1)
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
         end = close_app()
