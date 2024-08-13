@@ -80,6 +80,7 @@ while T is True:
 age = number_check('Age')
 YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
 while True:
+    print_pause('Welcome to our zen zone healthy lifestyle app',1)1
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
         end = close_app()
