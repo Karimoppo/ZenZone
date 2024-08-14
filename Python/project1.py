@@ -3,7 +3,7 @@ import math
 import random
 Hlthyrcp ='Healthy recipes'
 MlRem ='Meal reminders'
-MlPrp ='meal preparation'
+MlPrp ='Meal preparation'
 T = True
 F = False
 QBBS ='Quinoa and Black Bean Salad'
@@ -153,11 +153,134 @@ lun5 ='Sweet Potato and Black Bean Burrito Bowl'
 lun6 ='Mango and Black Bean Quinoa Salad'
 lun7 ='Zucchini Noodles with Pesto'
 day_number =[1,2,3,4,5,6,7]
-Total_breakfast =[br1,br2,br3,br4,br5,br6,br7]
-Total_snack1 =[sn1,sn2,sn3,sn4,sn5,sn6,sn7]
-Total_snack2 =[sn8,sn9,sn10,sn11,sn12,sn13,sn14]
-Total_Dinner=[din1,din2,din3,din4,din5,din6,din7]
-Total_Lunch=[lun1,lun2,lun3,lun4,lun5,lun6,lun7]
+Total1_breakfast =[br1,br2,br3,br4,br5,br6,br7]
+Total1_snack1 =[sn1,sn2,sn3,sn4,sn5,sn6,sn7]
+Total1_snack2 =[sn8,sn9,sn10,sn11,sn12,sn13,sn14]
+Total1_Dinner=[din1,din2,din3,din4,din5,din6,din7]
+Total1_Lunch=[lun1,lun2,lun3,lun4,lun5,lun6,lun7]
+b1r1 ='Chia Seed Pudding with Fresh Fruit'
+b1r2 ='Breakfast Burrito'
+b1r3 ='Quinoa Breakfast Bowl'
+b1r4 ='Berry and Spinach Smoothie'
+b1r5 ='Almond Flour Pancakes'
+b1r6 ='Sweet Potato Hash'
+b1r7 ='Apple Cinnamon Overnight Oats'
+s1n1='Apple Slices with Almond Butter'
+s1n2='Homemade Trail Mix'
+s1n3='Rice Cakes with Avocado Spread'
+s1n4='Roasted Seaweed Snacks'
+s1n5='Hummus-Stuffed Mini Bell Peppers'
+s1n6='Frozen Grapes'
+s1n7='Greek Yogurt with Fresh Herbs'
+s1n8='Zucchini Chips'
+s1n9='Sweet Potato Chips'
+s1n10='Stuffed Dates'
+s1n11='Mini Caprese Skewers'
+s1n12='Spiced Nuts'
+s1n13='Peach Slices with Cottage Cheese'
+s1n14='Celery Sticks with Almond Butter and Raisins'
+di1n1='Lentil and Vegetable Stew'
+di1n2='Grilled Chicken with Quinoa and Roasted Vegetables'
+di1n3='Stuffed Bell Peppers'
+di1n4='Baked Salmon with Asparagus and Sweet Potatoes'
+di1n5='Vegetable Stir-Fry with Tofu'
+di1n6='Chickpea and Spinach Curry'
+di1n7='Grilled Portobello Mushrooms with Sweet Potato Wedges'
+lu1n1='Grilled Chicken Salad with Avocado and Citrus Vinaigrette'
+lu1n2='Quinoa-Stuffed Bell Peppers'
+lu1n3='Lentil and Roasted Tomato Soup'
+lu1n4='Avocado and Turkey Club Salad'
+lu1n5='Greek Yogurt and Herb Chicken Salad'
+lu1n6='Butternut Squash and Spinach Salad with Walnuts'
+lu1n7='Chickpea and Kale Salad with Lemon-Tahini Dressing'
+day2_number=[8,9,10,11,12,13,14]
+Total2_breakfast =[b1r1,b1r2,b1r3,b1r4,b1r5,b1r6,b1r7]
+Total2_snack1 =[s1n1,s1n2,s1n3,s1n4,s1n5,s1n6,s1n7]
+Total2_snack2 =[s1n8,s1n9,s1n10,s1n11,s1n12,s1n13,s1n14]
+Total2_Dinner=[di1n1,di1n2,di1n3,di1n4,di1n5,di1n6,di1n7]
+Total2_Lunch=[lu1n1,lu1n2,lu1n3,lu1n4,lu1n5,lu1n6,lu1n7]
+b2r1 ='Breakfast Chia Pudding Parfait'
+b2r2 ='Savory Quinoa and Veggie Bowl'
+b2r3 ='Stuffed Bell Peppers'
+b2r4 ='Apple and Nut Butter Sandwich'
+b2r5 ='Whole Wheat English Muffin with Smoked Salmon'
+b2r6 ='Sweet Potato and Black Bean Breakfast Tacos'
+b2r7 ='Almond Butter and Banana Stuffed French Toast'
+s2n1='Cherry Tomatoes with Balsamic Reduction'
+s2n2='Frozen Yogurt Bark'
+s2n3='Sliced Bell Peppers with Guacamole'
+s2n4='Roasted Almonds with Herbs'
+s2n5='Cucumber and Tomato Salad'
+s2n6='Stuffed Avocado Halves'
+s2n7='Kale Chips'
+s2n8='Oven-Baked Apple Chips'
+s2n9='Protein Balls'
+s2n10='Roasted Brussels Sprouts'
+s2n11='Stuffed Dates with Goat Cheese'
+s2n12='Mini Smoothie Pops'
+s2n13='Baked Sweet Potato Fries'
+s2n14='Avocado and Tomato Salsa'
+di2n1='Baked Cod with Brussels Sprouts and Carrots'
+di2n2='Stuffed Acorn Squash'
+di2n3='Cauliflower Fried Rice'
+di2n4='Greek Chicken Salad'
+di2n5='Butternut Squash and Black Bean Enchiladas'
+di2n6='Salmon and Avocado Salad'
+di2n7='Stuffed Portobello Mushrooms'
+lu2n1='Mediterranean Chickpea Wrap'
+lu2n2='Cauliflower Rice and Veggie Stir-Fry'
+lu2n3='Salmon and Avocado Sushi Bowl'
+lu2n4='Roasted Beet and Goat Cheese Salad'
+lu2n5='Stuffed Sweet Potatoes with Black Beans and Corn'
+lu2n6='Chicken and Mango Salad with Lime Dressing'
+lu2n7='Vegetable and Bean Soup with a Side of Whole Grain Bread'
+day3_number=[15,16,17,18,19,20,21]
+Total3_breakfast =[b2r1,b2r2,b2r3,b2r4,b2r5,b2r6,b2r7]
+Total3_snack1 =[s2n1,s2n2,s2n3,s2n4,s2n5,s2n6,s2n7]
+Total3_snack2 =[s2n8,s2n9,s2n10,s2n11,s2n12,s2n13,s2n14]
+Total3_Dinner=[di2n1,di2n2,di2n3,di2n4,di2n5,di2n6,di2n7]
+Total3_Lunch=[lu2n1,lu2n2,lu2n3,lu2n4,lu2n5,lu2n6,lu2n7]
+b3r1 ='Pear and Almond Breakfast Crisp'
+b3r2 ='Spinach and Feta Stuffed Egg Muffins'
+b3r3 ='Coconut and Berry Chia Parfait'
+b3r4 ='Breakfast Polenta'
+b3r5 ='Sweet Potato and Kale Frittata'
+b3r6 ='Baked Apple with Cinnamon and Nuts'
+b3r7 ='Tofu Scramble with Spinach and Tomatoes'
+s3n1='Hummus-Stuffed Cherry Tomatoes'
+s3n2='Quinoa Salad Cups'
+s3n3='Spiced Pumpkin Seeds'
+s3n4='Avocado and Cucumber Sushi Rolls'
+s3n5='Jicama Sticks with Lime and Chili Powder'
+s3n6='Frozen Berry and Yogurt Bites'
+s3n7='Mini Greek Salad Skewers'
+s3n8='Roasted Broccoli Bites'
+s3n9='Baked Apple Slices with Cinnamon'
+s3n10='Turkey Roll-Ups'
+s3n11='Pumpkin Spice Energy Balls'
+s3n12='Seaweed Salad'
+s3n13='Seaweed Salad'
+s3n14='Spinach and Mushroom Stuffed Mini Frittatas'
+di3n1='Stuffed Portobello Mushrooms'
+di3n2='Vegetarian Chili'
+di3n3='Chicken and Sweet Potato Bake'
+di3n4='Spaghetti Squash with Marinara Sauce'
+di3n5='Greek Turkey Meatballs with Tzatziki'
+di3n6='Black Bean and Corn Salad with Lime Dressing'
+di3n7='Roasted Vegetable and Hummus Wrap'
+lu3n1='Quinoa and Roasted Vegetable Salad'
+lu3n2='Grilled Shrimp and Avocado Salad'
+lu3n3='Sweet Potato and Chickpea Buddha Bowl'
+lu3n4='Chicken and Vegetable Skewers with a Side of Tzatziki'
+lu3n5='Roasted Red Pepper and Tomato Soup'
+lu3n6='Thai Peanut Chicken Salad'
+lu3n7='Hummus and Veggie-Stuffed Pita'
+day4_number=[22,23,24,25,26,27,28]
+Total4_breakfast =[b3r1,b3r2,b3r3,b3r4,b3r5,b3r6,b3r7]
+Total4_snack1 =[s3n1,s3n2,s3n3,s3n4,s3n5,s3n6,s3n7]
+Total4_snack2 =[s3n8,s3n9,s3n10,s3n11,s3n12,s3n13,s3n14]
+Total4_Dinner=[di3n1,di3n2,di3n3,di3n4,di3n5,di3n6,di3n7]
+Total4_Lunch=[lu3n1,lu3n2,lu3n3,lu3n4,lu3n5,lu3n6,lu3n7]
 def print_pause(texts,delay):
     # this prints then pauses
     print(texts)
@@ -200,7 +323,7 @@ def number_check(txt):
             return round(inp)
         else:
             z = 0
-def close_app(txt):
+def close_app(txt,txt2):
     Y =0
     print_pause('If you want to continue enter Yes',2)
     print_pause(f'If you want to close {txt} enter no',2)
@@ -214,7 +337,7 @@ def close_app(txt):
             print('------------------------------')
             Y = 1
         elif X in ListN :
-            print_pause('Thanks for using our app',1)
+            print_pause(f'Thanks for using {txt2}',1)
             print_pause('Goodbye',1)
             return True
 def passw():
@@ -263,7 +386,7 @@ def login(email,username,password):
             print_pause('The username or password is invalid',2)
 def checkrange(ValueName,minvalue,maxvalue):
     while T :
-        value = number_check(f'your {ValueName}')
+        value = number_check(f'your {ValueName} from {minvalue} to {maxvalue}')
         if value < minvalue or value > maxvalue:
             print_pause(f'you entered your {ValueName} wrong ',2)
         else:
@@ -300,36 +423,61 @@ while True:
             print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
             print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
             print_pause(f'{meal_alertype[mlno]}',3)
-            HLend = close_app('The Healthy recipies')
+            HLend = close_app('The Healthy recipies','healthy recipies')
             if HLend is T :
                 break
             else:
                 print('')
-        end = close_app('the app')
+        end = close_app('the app','our app')
     elif inp1 == MlRem :
         print_pause('You have chosen the meal reminder',2)
         print_pause('you can choose the time in seconds',2)
         RemT =number_check('the time for the reminder')
         time.sleep(RemT)
         print_pause('Notification:The meal alarm',2)
-        end = close_app('the app')
+        end = close_app('the app','our app')
     elif inp1 == MlPrp :
         print_pause('You have have chosen the meal preparation',2)
         print_pause('This part will show you you meal plan',2)
         while T :
-            day =  checkrange('day number',1,7) - 1
-            print_pause(f'This is your meal plan for the day number {day_number[day]}',2)
-            print_pause(f'The breakfast : {Total_breakfast[day]}',2)
-            print_pause(f'The first snack : {Total_snack1[day]}',2)
-            print_pause(f'The lunch : {Total_Lunch[day]}',2)
-            print_pause(f'The second snack : {Total_snack2[day]}',2)
-            print_pause(f'The dinner : {Total_Dinner[day]}',2)
-            MLPend = close_app('the meal plan')
+            day =  checkrange('day number',1,28) - 1
+            if day >=0 and day <= 6:
+                print_pause(f'This is your meal plan for the day number {day_number[day]}',2)
+                print_pause(f'The breakfast : {Total1_breakfast[day]}',2)
+                print_pause(f'The first snack : {Total1_snack1[day]}',2)
+                print_pause(f'The lunch : {Total1_Lunch[day]}',2)
+                print_pause(f'The second snack : {Total1_snack2[day]}',2)
+                print_pause(f'The dinner : {Total1_Dinner[day]}',2)
+            elif day >=7 and day <=13:
+                day = day-7
+                print_pause(f'This is your meal plan for the day number {day2_number[day]}',2)
+                print_pause(f'The breakfast : {Total2_breakfast[day]}',2)
+                print_pause(f'The first snack : {Total2_snack1[day]}',2)
+                print_pause(f'The lunch : {Total2_Lunch[day]}',2)
+                print_pause(f'The second snack : {Total2_snack2[day]}',2)
+                print_pause(f'The dinner : {Total2_Dinner[day]}',2)
+            elif day >=14 and day <=20:
+                day = day-14
+                print_pause(f'This is your meal plan for the day number {day3_number[day]}',2)
+                print_pause(f'The breakfast : {Total3_breakfast[day]}',2)
+                print_pause(f'The first snack : {Total3_snack1[day]}',2)
+                print_pause(f'The lunch : {Total3_Lunch[day]}',2)
+                print_pause(f'The second snack : {Total3_snack2[day]}',2)
+                print_pause(f'The dinner : {Total3_Dinner[day]}',2)
+            elif day >=21 and day <=27:
+                day = day -21
+                print_pause(f'This is your meal plan for the day number {day4_number[day]}',2)
+                print_pause(f'The breakfast : {Total4_breakfast[day]}',2)
+                print_pause(f'The first snack : {Total4_snack1[day]}',2)
+                print_pause(f'The lunch : {Total4_Lunch[day]}',2)
+                print_pause(f'The second snack : {Total4_snack2[day]}',2)
+                print_pause(f'The dinner : {Total4_Dinner[day]}',2)
+            MLPend = close_app('the meal plan','our meal plan')
             if MLPend is T :
                 break
             else:
                 print('')
-        end = close_app('the app')
+        end = close_app('the app','the meal prep')
     else:
         print('hi')
     if end is T :
