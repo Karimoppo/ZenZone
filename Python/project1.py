@@ -108,7 +108,7 @@ SSCSC = 'Serving Size: About 1.5 cups'
 SSGYCS ='Serving Size: About 1 cup'
 SSAEBB = '1 bowl (contains 2 eggs and 1/2 avocado)'
 SSZNP = 'Serving Size: About 2 cups'
-meal_number = [1,2,3,4,5]
+meal_number = [1,2,3,4,5,6]
 meal_name = [QBBS,BSLD,CSC,GYCS,AEBB,ZNP]
 meal_Desc = [QBBSDES,BSLDDES,CSCDES,GYCSDES,AEBBDES,ZNPDES]
 meal_time = [20,20,30,15,10,15]
@@ -117,6 +117,47 @@ meal_alertype = [ATTQBBS,ATTBSLD,ATTCSC,ATTGYCS,ATTAEBB,ATTZNP]
 meal_calories = [350,250,350,300,350,250]
 meal_ingreadients = [QBBSI,BSLDI,CSCI,GYCSI,AEBBI,ZNPI]
 meal_servingsize = [SSQBBS,SSBSLD,SSCSC,SSGYCS,SSAEBB,SSZNP]
+br1 ='Greek Yogurt with Berries and Nuts'
+br2 ='Avocado Toast with Poached Egg'
+br3 ='Oatmeal with Banana and Almond Butter'
+br4 ='Smoothie Bowl'
+br5 ='Egg White Veggie Omelette'
+br6 ='Cottage Cheese with Pineapple and Chia Seeds'
+br7 ='Whole Grain Wrap with Hummus and Veggies'
+sn1 ='Apple Slices with Almond Butter'
+sn2 ='Carrot Sticks with Hummus'
+sn3 ='Greek Yogurt with Honey and Nuts'
+sn4 ='Cottage Cheese with Cherry Tomatoes'
+sn5 ='Mixed Nuts'
+sn6 ='Hard-Boiled Eggs'
+sn7 ='Edamame'
+sn8 ='Sliced Cucumber with Greek Yogurt Dip'
+sn9 ='Banana with Peanut Butter'
+sn10 ='Whole Grain Crackers with Cheese'
+sn11 ='Chia Pudding'
+sn12 ='Fresh Berries'
+sn13 ='Roasted Chickpeas'
+sn14 ='Apple and Cheese'
+din1 ='Baked Salmon with Asparagus'
+din2 ='Chicken Stir-Fry with Vegetables'
+din3 ='Quinoa-Stuffed Bell Peppers'
+din4 ='Turkey and Spinach Stuffed Zucchini Boats'
+din5 ='Shrimp and Vegetable Skewers'
+din6 ='Lentil and Veggie Stew'
+din7 ='Chicken and Broccoli Stir-Fry'
+lun1 ='Turkey and Veggie Lettuce Wraps'
+lun2 ='Spinach and Feta Stuffed Chicken Breast'
+lun3 ='Roasted Veggie and Hummus Wrap'
+lun4 ='Cabbage and Carrot Slaw with Apple Cider Vinegar Dressing'
+lun5 ='Sweet Potato and Black Bean Burrito Bowl'
+lun6 ='Mango and Black Bean Quinoa Salad'
+lun7 ='Zucchini Noodles with Pesto'
+day_number =[1,2,3,4,5,6,7]
+Total_breakfast =[br1,br2,br3,br4,br5,br6,br7]
+Total_snack1 =[sn1,sn2,sn3,sn4,sn5,sn6,sn7]
+Total_snack2 =[sn8,sn9,sn10,sn11,sn12,sn13,sn14]
+Total_Dinner=[din1,din2,din3,din4,din5,din6,din7]
+Total_Lunch=[lun1,lun2,lun3,lun4,lun5,lun6,lun7]
 def print_pause(texts,delay):
     # this prints then pauses
     print(texts)
@@ -159,10 +200,10 @@ def number_check(txt):
             return round(inp)
         else:
             z = 0
-def close_app():
+def close_app(txt):
     Y =0
     print_pause('If you want to continue enter Yes',2)
-    print_pause('If you want to close the app enter no',2)
+    print_pause(f'If you want to close {txt} enter no',2)
     ListY = ('yes','ye','y','ys','es')
     ListN = ('no','n')
     while Y == 0 :
@@ -184,11 +225,11 @@ def passw():
     while True:
         passw=str(input('Enter your password : '))
         confpassw=str(input('Confirm your password : '))
-        for x in passw:
-            if x.upper() == passw[z]:
-                c += 1
-            z += 1
         if passw == confpassw and len(passw) >= 8 :
+            for x in passw:
+                if x.upper() == passw[z]:
+                    c += 1
+                z += 1
             if c < 1 or c == len(passw):
                 print_pause('The password needs to have',1)
                 print_pause('Both upper case letters and lower case',1)
@@ -227,16 +268,21 @@ def checkrange(ValueName,minvalue,maxvalue):
             print_pause(f'you entered your {ValueName} wrong ',2)
         else:
             return value
-
-username = str(input('Enter your user name : '))
+while T :
+    username = str(input('Enter your user name : '))
+    banname =[' ','  ','   ','.',"'",'']
+    if username in banname:
+        print_pause('Enter a username',1)
+    else :
+        break
 email = eml()
 print(email)
 password = passw()
 age = checkrange('Age',13,105)
 height = checkrange('height',65,255)
 weight = checkrange('Weight(In kilograms)',20,200)
+login(email,username,password)
 while True:
-    login(email,username,password)
     print_pause('Welcome to our zen zone healthy lifestyle app',1)
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
@@ -245,6 +291,7 @@ while True:
         print_pause('We have 6 meals for you',1)
         mlno = 0
         while True :
+            mlno = checkrange('meal number',1,6) - 1
             print_pause(f'This is the meal number {meal_number[mlno]}',1)
             print_pause(f'The name of this meal is {meal_name[mlno]}',2)
             print_pause(f'These are the steps to cook it {meal_Desc[mlno]}',3)
@@ -253,23 +300,36 @@ while True:
             print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
             print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
             print_pause(f'{meal_alertype[mlno]}',3)
-            mlno = number_check('the meal number')
-            mlno = mlno - 1
-            end = close_app()
-            if end is T :
+            HLend = close_app('The Healthy recipies')
+            if HLend is T :
                 break
             else:
                 print('')
-
+        end = close_app('the app')
     elif inp1 == MlRem :
         print_pause('You have chosen the meal reminder',2)
         print_pause('you can choose the time in seconds',2)
         RemT =number_check('the time for the reminder')
         time.sleep(RemT)
         print_pause('Notification:The meal alarm',2)
-        end = close_app()
+        end = close_app('the app')
     elif inp1 == MlPrp :
-        end = close_app()
+        print_pause('You have have chosen the meal preparation',2)
+        print_pause('This part will show you you meal plan',2)
+        while T :
+            day =  checkrange('day number',1,7) - 1
+            print_pause(f'This is your meal plan for the day number {day_number[day]}',2)
+            print_pause(f'The breakfast : {Total_breakfast[day]}',2)
+            print_pause(f'The first snack : {Total_snack1[day]}',2)
+            print_pause(f'The lunch : {Total_Lunch[day]}',2)
+            print_pause(f'The second snack : {Total_snack2[day]}',2)
+            print_pause(f'The dinner : {Total_Dinner[day]}',2)
+            MLPend = close_app('the meal plan')
+            if MLPend is T :
+                break
+            else:
+                print('')
+        end = close_app('the app')
     else:
         print('hi')
     if end is T :
