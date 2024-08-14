@@ -203,24 +203,38 @@ username = str(input('Enter your user name : '))
 email = str(input('Enter your email : '))
 password = passw()
 age = number_check('your Age')
-YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
+# YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
 while True:
-
     print_pause('Welcome to our zen zone healthy lifestyle app',1)
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
         print_pause('You have chosen Healthy Recipies ',1)
         print_pause('You can find some healthy recipies that you can have in your diet',2)
+        print_pause('We have 6 meals for you',1)
+        mlno = 0
         while True :
-            nomeal = number_check()
-            print_pause
-            print_pause(f'meal number {meal_number[0]}')
+            print_pause(f'This is the meal number {meal_number[mlno]}',1)
+            print_pause(f'The name of this meal is {meal_name[mlno]}',2)
+            print_pause(f'These are the steps to cook it {meal_Desc[mlno]}',3)
+            print_pause(f'The time it take to the cook is about {meal_time[mlno]} minutes',2)
+            print_pause(f'This meal has {meal_calories[mlno]} per serving',2)
+            print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
+            print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
+            print_pause(f'{meal_alertype[mlno]}',3)
+            print_pause()
+            mlno = number_check('the meal number')
             end = close_app()
+            if end is T :
+                break
+            else:
+                print('')
+
     elif inp1 == MlRem :
         print_pause('You have chosen the meal reminder',2)
         print_pause('you can choose the time in seconds',2)
         RemT =number_check('the time for the reminder')
         time.sleep(RemT)
+        print_pause('Notification:The meal alarm')
         end = close_app()
     elif inp1 == MlPrp :
         end = close_app()
