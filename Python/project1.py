@@ -166,7 +166,7 @@ def close_app():
     ListY = ('yes','ye','y','ys','es')
     ListN = ('no','n')
     while Y == 0 :
-        X = str(input('Please write Yes or No '))
+        X = str(input('Please write Yes or No : '))
         X = X.lower()
         if X in ListY :
             print_pause('restarting',2)
@@ -249,12 +249,12 @@ while True:
             print_pause(f'The name of this meal is {meal_name[mlno]}',2)
             print_pause(f'These are the steps to cook it {meal_Desc[mlno]}',3)
             print_pause(f'The time it take to the cook is about {meal_time[mlno]} minutes',2)
-            print_pause(f'This meal has {meal_calories[mlno]} per serving',2)
+            print_pause(f'This meal has {meal_calories[mlno]} calories per serving',2)
             print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
             print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
             print_pause(f'{meal_alertype[mlno]}',3)
-            print_pause()
             mlno = number_check('the meal number')
+            mlno = mlno - 1
             end = close_app()
             if end is T :
                 break
