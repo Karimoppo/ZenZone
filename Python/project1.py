@@ -199,12 +199,44 @@ def passw():
             print_pause('Enter more than 8 caracters',1)
         else :
             print_pause('Confirm the password correctly',1)
+def eml():
+    N = 0
+    while T :
+        email = str(input('Enter your email : '))
+        for x in email :
+            if x == '@':
+                N = 1
+                break
+        if N < 1 :
+            print_pause('Enter a correct email',2)
+        else:
+            return email
+def login(email,username,password):
+    print_pause('You need to login first',1)
+    while T :
+        name_email = str(input('Enter your email or username : '))
+        passwordinp = str(input('Enter your password : '))
+        if (name_email == email or name_email == username) and (password == passwordinp):
+            return T
+        else :
+            print_pause('The username or password is invalid',2)
+def checkrange(ValueName,minvalue,maxvalue):
+    while T :
+        value = number_check(f'your {ValueName}')
+        if value < minvalue or value > maxvalue:
+            print_pause(f'you entered your {ValueName} wrong ',2)
+        else:
+            return value
+
 username = str(input('Enter your user name : '))
-email = str(input('Enter your email : '))
+email = eml()
+print(email)
 password = passw()
-age = number_check('your Age')
-# YNalergie = check_input('1','2',F,F,'if you have alergies','if you do not have alergies',F,F)
+age = checkrange('Age',13,105)
+height = checkrange('height',65,255)
+weight = checkrange('Weight(In kilograms)',20,200)
 while True:
+    login(email,username,password)
     print_pause('Welcome to our zen zone healthy lifestyle app',1)
     inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
     if inp1 == Hlthyrcp :
@@ -234,7 +266,7 @@ while True:
         print_pause('you can choose the time in seconds',2)
         RemT =number_check('the time for the reminder')
         time.sleep(RemT)
-        print_pause('Notification:The meal alarm')
+        print_pause('Notification:The meal alarm',2)
         end = close_app()
     elif inp1 == MlPrp :
         end = close_app()
