@@ -4,6 +4,7 @@ import random
 Hlthyrcp ='Healthy recipes'
 MlRem ='Meal reminders'
 MlPrp ='Meal preparation'
+AccInfo ='Account information'
 T = True
 F = False
 QBBS ='Quinoa and Black Bean Salad'
@@ -404,10 +405,12 @@ password = passw()
 age = checkrange('Age',13,105)
 height = checkrange('height',65,255)
 weight = checkrange('Weight(In kilograms)',20,200)
+heightM = height/100
+BMI = weight / (heightM*heightM)
 login(email,username,password)
 while True:
     print_pause('Welcome to our zen zone healthy lifestyle app',1)
-    inp1 = check_input('1','2','3',F,Hlthyrcp,MlRem,MlPrp,F)
+    inp1 = check_input('1','2','3','4',Hlthyrcp,MlRem,MlPrp,AccInfo)
     if inp1 == Hlthyrcp :
         print_pause('You have chosen Healthy Recipies ',1)
         print_pause('You can find some healthy recipies that you can have in your diet',2)
@@ -477,7 +480,33 @@ while True:
                 break
             else:
                 print('')
-        end = close_app('the app','the meal prep')
+        end = close_app('the app','our app')
+    elif inp1 == AccInfo:
+        login(email,username,password)
+        print_pause(f'your username : {username}',1)
+        print_pause(f'your email : {email}',1)
+        print_pause(f'your age : {age} years old',1)
+        print_pause(f'your height : {height} centimeters tall',1)
+        print_pause(f'your weight : {weight} kilograms',1)
+        print_pause(f'your BMI : {BMI}',1)
+        print_pause('BMI stands for body mass index',2)
+        print_pause('The BMI weight status',2)
+        print_pause('if your BMI below 18.5 then you are Underweight',2)
+        print_pause('if your BMI is between 18.5 and 25 then you are Healty weight',2)
+        print_pause('if your BMI is between 25 and 30 then you are overweight',2)
+        print_pause('if your BMI is between 30 and 35 then you are obese',2)
+        print_pause('if your BMI is over 35 then you are Severly obese',2)
+        if BMI <= 18.5:
+            print_pause('you are underweight',1)
+        elif BMI > 18.5 and BMI <= 25 :
+            print_pause('you are Healthy weight',1)
+        elif BMI > 25 and BMI <= 30:
+            print_pause('you are overweight',1)
+        elif BMI >30 and BMI <= 35:
+            print_pause('you are obese',1)
+        elif BMI >35 :
+            print_pause('You are Severly obese')
+        end = close_app('the app','our app')
     else:
         print('hi')
     if end is T :
