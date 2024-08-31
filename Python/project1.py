@@ -282,234 +282,251 @@ Total4_snack1 =[s3n1,s3n2,s3n3,s3n4,s3n5,s3n6,s3n7]
 Total4_snack2 =[s3n8,s3n9,s3n10,s3n11,s3n12,s3n13,s3n14]
 Total4_Dinner=[di3n1,di3n2,di3n3,di3n4,di3n5,di3n6,di3n7]
 Total4_Lunch=[lu3n1,lu3n2,lu3n3,lu3n4,lu3n5,lu3n6,lu3n7]
-def print_pause(texts,delay):
-    # this prints then pauses
-    print(texts)
-    time.sleep(delay)
+def randtotal(dayno,totalitems):
+    dayno = dayno
+    nolist = [0,1,2,3,4,5,6]
+    newtotal = []
+    totalitems = totalitems
+    for x in nolist:
+        number = random.choice(nolist)
+        nolist = nolist.pop(number)
+        newtotal = newtotal.append(totalitems[number])
+    return dayno , totalitems , newtotal
+x = randtotal(day_number,Total1_breakfast)
+print (x)
 
-def helpchinp(txt,ans):
-    # this checks if the condition is false
-    if txt is False:
-        time.sleep(0)
-    else:
-        print_pause(f'enter {txt} for {ans}',1)
 
-def check_input(ch1,ch2,ch3,ch4,ans1,ans2,ans3,ans4):
-    # this checks if the input  is in the choices
-    # if you want to test then take the example and then you can change
-    # inp1 = check_input('1','2',False,'4','hi','hello',False,'welcome')
-    # print(inp1)
-    helpchinp(ch1,ans1)
-    helpchinp(ch2,ans2)
-    helpchinp(ch3,ans3)
-    helpchinp(ch4,ans4)
-    while True:
-        time.sleep(1)
-        inp =str(input('Please enter your input '))
-        if inp == ch1:
-            return ans1
-        elif inp == ch2:
-            return ans2
-        elif inp == ch3:
-            return ans3
-        elif inp == ch4:
-            return ans4
-        else:
-            z = 0
-def number_check(txt):
-    while True:
-        inp = (input(f'Enter {txt} : '))
-        if inp.isnumeric() is True:
-            inp = int(inp)
-            return round(inp)
-        else:
-            z = 0
-def close_app(txt,txt2):
-    Y =0
-    print_pause('If you want to continue enter Yes',2)
-    print_pause(f'If you want to close {txt} enter no',2)
-    ListY = ('yes','ye','y','ys','es')
-    ListN = ('no','n')
-    while Y == 0 :
-        X = str(input('Please write Yes or No : '))
-        X = X.lower()
-        if X in ListY :
-            print_pause('restarting',2)
-            print('------------------------------')
-            Y = 1
-        elif X in ListN :
-            print_pause(f'Thanks for using {txt2}',1)
-            print_pause('Goodbye',1)
-            return True
-def passw():
-    print_pause('The password needs to be more than 8 characters',2)
-    print_pause('and it needs to have a mix of upper and lower case letters',2)
-    c = 0
-    z = 0
-    while True:
-        passw=str(input('Enter your password : '))
-        confpassw=str(input('Confirm your password : '))
-        if passw == confpassw and len(passw) >= 8 :
-            for x in passw:
-                if x.upper() == passw[z]:
-                    c += 1
-                z += 1
-            if c < 1 or c == len(passw):
-                print_pause('The password needs to have',1)
-                print_pause('Both upper case letters and lower case',1)
-            elif c >= 1 and c < len(passw):
-                return passw
-        elif passw == confpassw and len(passw) < 8:
-            print_pause('The password needs to have',1)
-            print_pause('Enter more than 8 caracters',1)
-        else :
-            print_pause('Confirm the password correctly',1)
-def eml():
-    N = 0
-    while T :
-        email = str(input('Enter your email : '))
-        for x in email :
-            if x == '@':
-                N = 1
-                break
-        if N < 1 :
-            print_pause('Enter a correct email',2)
-        else:
-            return email
-def login(email,username,password):
-    print_pause('You need to login first',1)
-    while T :
-        name_email = str(input('Enter your email or username : '))
-        passwordinp = str(input('Enter your password : '))
-        if (name_email == email or name_email == username) and (password == passwordinp):
-            return T
-        else :
-            print_pause('The username or password is invalid',2)
-def checkrange(ValueName,minvalue,maxvalue):
-    while T :
-        value = number_check(f'your {ValueName} from {minvalue} to {maxvalue}')
-        if value < minvalue or value > maxvalue:
-            print_pause(f'you entered your {ValueName} wrong ',2)
-        else:
-            return value
-while T :
-    username = str(input('Enter your user name : '))
-    banname =[' ','  ','   ','.',"'",'']
-    if username in banname:
-        print_pause('Enter a username',1)
-    else :
-        break
-email = eml()
-print(email)
-password = passw()
-age = checkrange('Age',13,105)
-height = checkrange('height',65,255)
-weight = checkrange('Weight(In kilograms)',20,200)
-heightM = height/100
-BMI = weight / (heightM*heightM)
-login(email,username,password)
-while True:
-    print_pause('Welcome to our zen zone healthy lifestyle app',1)
-    inp1 = check_input('1','2','3','4',Hlthyrcp,MlRem,MlPrp,AccInfo)
-    if inp1 == Hlthyrcp :
-        print_pause('You have chosen Healthy Recipies ',1)
-        print_pause('You can find some healthy recipies that you can have in your diet',2)
-        print_pause('We have 6 meals for you',1)
-        mlno = 0
-        while True :
-            mlno = checkrange('meal number',1,6) - 1
-            print_pause(f'This is the meal number {meal_number[mlno]}',1)
-            print_pause(f'The name of this meal is {meal_name[mlno]}',2)
-            print_pause(f'These are the steps to cook it {meal_Desc[mlno]}',3)
-            print_pause(f'The time it take to the cook is about {meal_time[mlno]} minutes',2)
-            print_pause(f'This meal has {meal_calories[mlno]} calories per serving',2)
-            print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
-            print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
-            print_pause(f'{meal_alertype[mlno]}',3)
-            HLend = close_app('The Healthy recipies','healthy recipies')
-            if HLend is T :
-                break
-            else:
-                print('')
-        end = close_app('the app','our app')
-    elif inp1 == MlRem :
-        print_pause('You have chosen the meal reminder',2)
-        print_pause('you can choose the time in seconds',2)
-        RemT =number_check('the time for the reminder')
-        time.sleep(RemT)
-        print_pause('Notification:The meal alarm',2)
-        end = close_app('the app','our app')
-    elif inp1 == MlPrp :
-        print_pause('You have have chosen the meal preparation',2)
-        print_pause('This part will show you you meal plan',2)
-        while T :
-            day =  checkrange('day number',1,28) - 1
-            if day >=0 and day <= 6:
-                print_pause(f'This is your meal plan for the day number {day_number[day]}',2)
-                print_pause(f'The breakfast : {Total1_breakfast[day]}',2)
-                print_pause(f'The first snack : {Total1_snack1[day]}',2)
-                print_pause(f'The lunch : {Total1_Lunch[day]}',2)
-                print_pause(f'The second snack : {Total1_snack2[day]}',2)
-                print_pause(f'The dinner : {Total1_Dinner[day]}',2)
-            elif day >=7 and day <=13:
-                day = day-7
-                print_pause(f'This is your meal plan for the day number {day2_number[day]}',2)
-                print_pause(f'The breakfast : {Total2_breakfast[day]}',2)
-                print_pause(f'The first snack : {Total2_snack1[day]}',2)
-                print_pause(f'The lunch : {Total2_Lunch[day]}',2)
-                print_pause(f'The second snack : {Total2_snack2[day]}',2)
-                print_pause(f'The dinner : {Total2_Dinner[day]}',2)
-            elif day >=14 and day <=20:
-                day = day-14
-                print_pause(f'This is your meal plan for the day number {day3_number[day]}',2)
-                print_pause(f'The breakfast : {Total3_breakfast[day]}',2)
-                print_pause(f'The first snack : {Total3_snack1[day]}',2)
-                print_pause(f'The lunch : {Total3_Lunch[day]}',2)
-                print_pause(f'The second snack : {Total3_snack2[day]}',2)
-                print_pause(f'The dinner : {Total3_Dinner[day]}',2)
-            elif day >=21 and day <=27:
-                day = day -21
-                print_pause(f'This is your meal plan for the day number {day4_number[day]}',2)
-                print_pause(f'The breakfast : {Total4_breakfast[day]}',2)
-                print_pause(f'The first snack : {Total4_snack1[day]}',2)
-                print_pause(f'The lunch : {Total4_Lunch[day]}',2)
-                print_pause(f'The second snack : {Total4_snack2[day]}',2)
-                print_pause(f'The dinner : {Total4_Dinner[day]}',2)
-            MLPend = close_app('the meal plan','our meal plan')
-            if MLPend is T :
-                break
-            else:
-                print('')
-        end = close_app('the app','our app')
-    elif inp1 == AccInfo:
-        login(email,username,password)
-        print_pause(f'your username : {username}',1)
-        print_pause(f'your email : {email}',1)
-        print_pause(f'your age : {age} years old',1)
-        print_pause(f'your height : {height} centimeters tall',1)
-        print_pause(f'your weight : {weight} kilograms',1)
-        print_pause(f'your BMI : {BMI}',1)
-        print_pause('BMI stands for body mass index',2)
-        print_pause('The BMI weight status',2)
-        print_pause('if your BMI below 18.5 then you are Underweight',2)
-        print_pause('if your BMI is between 18.5 and 25 then you are Healty weight',2)
-        print_pause('if your BMI is between 25 and 30 then you are overweight',2)
-        print_pause('if your BMI is between 30 and 35 then you are obese',2)
-        print_pause('if your BMI is over 35 then you are Severly obese',2)
-        if BMI <= 18.5:
-            print_pause('you are underweight',1)
-        elif BMI > 18.5 and BMI <= 25 :
-            print_pause('you are Healthy weight',1)
-        elif BMI > 25 and BMI <= 30:
-            print_pause('you are overweight',1)
-        elif BMI >30 and BMI <= 35:
-            print_pause('you are obese',1)
-        elif BMI >35 :
-            print_pause('You are Severly obese')
-        end = close_app('the app','our app')
-    else:
-        print('hi')
-    if end is T :
-        break
-    else:
-        print('')
+    
+            
+
+# def print_pause(texts,delay):
+#     # this prints then pauses
+#     print(texts)
+#     time.sleep(delay)
+
+# def helpchinp(txt,ans):
+#     # this checks if the condition is false
+#     if txt is False:
+#         time.sleep(0)
+#     else:
+#         print_pause(f'enter {txt} for {ans}',1)
+
+# def check_input(ch1,ch2,ch3,ch4,ans1,ans2,ans3,ans4):
+#     # this checks if the input  is in the choices
+#     # if you want to test then take the example and then you can change
+#     # inp1 = check_input('1','2',False,'4','hi','hello',False,'welcome')
+#     # print(inp1)
+#     helpchinp(ch1,ans1)
+#     helpchinp(ch2,ans2)
+#     helpchinp(ch3,ans3)
+#     helpchinp(ch4,ans4)
+#     while True:
+#         time.sleep(1)
+#         inp =str(input('Please enter your input '))
+#         if inp == ch1:
+#             return ans1
+#         elif inp == ch2:
+#             return ans2
+#         elif inp == ch3:
+#             return ans3
+#         elif inp == ch4:
+#             return ans4
+#         else:
+#             z = 0
+# def number_check(txt):
+#     while True:
+#         inp = (input(f'Enter {txt} : '))
+#         if inp.isnumeric() is True:
+#             inp = int(inp)
+#             return round(inp)
+#         else:
+#             z = 0
+# def close_app(txt,txt2):
+#     Y =0
+#     print_pause('If you want to continue enter Yes',2)
+#     print_pause(f'If you want to close {txt} enter no',2)
+#     ListY = ('yes','ye','y','ys','es')
+#     ListN = ('no','n')
+#     while Y == 0 :
+#         X = str(input('Please write Yes or No : '))
+#         X = X.lower()
+#         if X in ListY :
+#             print_pause('restarting',2)
+#             print('------------------------------')
+#             Y = 1
+#         elif X in ListN :
+#             print_pause(f'Thanks for using {txt2}',1)
+#             print_pause('Goodbye',1)
+#             return True
+# def passw():
+#     print_pause('The password needs to be more than 8 characters',2)
+#     print_pause('and it needs to have a mix of upper and lower case letters',2)
+#     c = 0
+#     z = 0
+#     while True:
+#         passw=str(input('Enter your password : '))
+#         confpassw=str(input('Confirm your password : '))
+#         if passw == confpassw and len(passw) >= 8 :
+#             for x in passw:
+#                 if x.upper() == passw[z]:
+#                     c += 1
+#                 z += 1
+#             if c < 1 or c == len(passw):
+#                 print_pause('The password needs to have',1)
+#                 print_pause('Both upper case letters and lower case',1)
+#             elif c >= 1 and c < len(passw):
+#                 return passw
+#         elif passw == confpassw and len(passw) < 8:
+#             print_pause('The password needs to have',1)
+#             print_pause('Enter more than 8 caracters',1)
+#         else :
+#             print_pause('Confirm the password correctly',1)
+# def eml():
+#     N = 0
+#     while T :
+#         email = str(input('Enter your email : '))
+#         for x in email :
+#             if x == '@':
+#                 N = 1
+#                 break
+#         if N < 1 :
+#             print_pause('Enter a correct email',2)
+#         else:
+#             return email
+# def login(email,username,password):
+#     print_pause('You need to login first',1)
+#     while T :
+#         name_email = str(input('Enter your email or username : '))
+#         passwordinp = str(input('Enter your password : '))
+#         if (name_email == email or name_email == username) and (password == passwordinp):
+#             return T
+#         else :
+#             print_pause('The username or password is invalid',2)
+# def checkrange(ValueName,minvalue,maxvalue):
+#     while T :
+#         value = number_check(f'your {ValueName} from {minvalue} to {maxvalue}')
+#         if value < minvalue or value > maxvalue:
+#             print_pause(f'you entered your {ValueName} wrong ',2)
+#         else:
+#             return value
+# while T :
+#     username = str(input('Enter your user name : '))
+#     banname =[' ','  ','   ','.',"'",'']
+#     if username in banname:
+#         print_pause('Enter a username',1)
+#     else :
+#         break
+# email = eml()
+# print(email)
+# password = passw()
+# age = checkrange('Age',13,105)
+# height = checkrange('height',65,255)
+# weight = checkrange('Weight(In kilograms)',20,200)
+# heightM = height/100
+# BMI = weight / (heightM*heightM)
+# login(email,username,password)
+# while True:
+#     print_pause('Welcome to our zen zone healthy lifestyle app',1)
+#     inp1 = check_input('1','2','3','4',Hlthyrcp,MlRem,MlPrp,AccInfo)
+#     if inp1 == Hlthyrcp :
+#         print_pause('You have chosen Healthy Recipies ',1)
+#         print_pause('You can find some healthy recipies that you can have in your diet',2)
+#         print_pause('We have 6 meals for you',1)
+#         mlno = 0
+#         while True :
+#             mlno = checkrange('meal number',1,6) - 1
+#             print_pause(f'This is the meal number {meal_number[mlno]}',1)
+#             print_pause(f'The name of this meal is {meal_name[mlno]}',2)
+#             print_pause(f'These are the steps to cook it {meal_Desc[mlno]}',3)
+#             print_pause(f'The time it take to the cook is about {meal_time[mlno]} minutes',2)
+#             print_pause(f'This meal has {meal_calories[mlno]} calories per serving',2)
+#             print_pause(f'The serving size is {meal_servingsize[mlno]}',2)
+#             print_pause(f'The meal ingreadients are : {meal_ingreadients[mlno]}',4)
+#             print_pause(f'{meal_alertype[mlno]}',3)
+#             HLend = close_app('The Healthy recipies','healthy recipies')
+#             if HLend is T :
+#                 break
+#             else:
+#                 print('')
+#         end = close_app('the app','our app')
+#     elif inp1 == MlRem :
+#         print_pause('You have chosen the meal reminder',2)
+#         print_pause('you can choose the time in seconds',2)
+#         RemT =number_check('the time for the reminder')
+#         time.sleep(RemT)
+#         print_pause('Notification:The meal alarm',2)
+#         end = close_app('the app','our app')
+#     elif inp1 == MlPrp :
+#         print_pause('You have have chosen the meal preparation',2)
+#         print_pause('This part will show you you meal plan',2)
+#         while T :
+#             day =  checkrange('day number',1,28) - 1
+#             if day >=0 and day <= 6:
+#                 print_pause(f'This is your meal plan for the day number {day_number[day]}',2)
+#                 print_pause(f'The breakfast : {Total1_breakfast[day]}',2)
+#                 print_pause(f'The first snack : {Total1_snack1[day]}',2)
+#                 print_pause(f'The lunch : {Total1_Lunch[day]}',2)
+#                 print_pause(f'The second snack : {Total1_snack2[day]}',2)
+#                 print_pause(f'The dinner : {Total1_Dinner[day]}',2)
+#             elif day >=7 and day <=13:
+#                 day = day-7
+#                 print_pause(f'This is your meal plan for the day number {day2_number[day]}',2)
+#                 print_pause(f'The breakfast : {Total2_breakfast[day]}',2)
+#                 print_pause(f'The first snack : {Total2_snack1[day]}',2)
+#                 print_pause(f'The lunch : {Total2_Lunch[day]}',2)
+#                 print_pause(f'The second snack : {Total2_snack2[day]}',2)
+#                 print_pause(f'The dinner : {Total2_Dinner[day]}',2)
+#             elif day >=14 and day <=20:
+#                 day = day-14
+#                 print_pause(f'This is your meal plan for the day number {day3_number[day]}',2)
+#                 print_pause(f'The breakfast : {Total3_breakfast[day]}',2)
+#                 print_pause(f'The first snack : {Total3_snack1[day]}',2)
+#                 print_pause(f'The lunch : {Total3_Lunch[day]}',2)
+#                 print_pause(f'The second snack : {Total3_snack2[day]}',2)
+#                 print_pause(f'The dinner : {Total3_Dinner[day]}',2)
+#             elif day >=21 and day <=27:
+#                 day = day -21
+#                 print_pause(f'This is your meal plan for the day number {day4_number[day]}',2)
+#                 print_pause(f'The breakfast : {Total4_breakfast[day]}',2)
+#                 print_pause(f'The first snack : {Total4_snack1[day]}',2)
+#                 print_pause(f'The lunch : {Total4_Lunch[day]}',2)
+#                 print_pause(f'The second snack : {Total4_snack2[day]}',2)
+#                 print_pause(f'The dinner : {Total4_Dinner[day]}',2)
+#             MLPend = close_app('the meal plan','our meal plan')
+#             if MLPend is T :
+#                 break
+#             else:
+#                 print('')
+#         end = close_app('the app','our app')
+#     elif inp1 == AccInfo:
+#         login(email,username,password)
+#         print_pause(f'your username : {username}',1)
+#         print_pause(f'your email : {email}',1)
+#         print_pause(f'your age : {age} years old',1)
+#         print_pause(f'your height : {height} centimeters tall',1)
+#         print_pause(f'your weight : {weight} kilograms',1)
+#         print_pause(f'your BMI : {BMI}',1)
+#         print_pause('BMI stands for body mass index',2)
+#         print_pause('The BMI weight status',2)
+#         print_pause('if your BMI below 18.5 then you are Underweight',2)
+#         print_pause('if your BMI is between 18.5 and 25 then you are Healty weight',2)
+#         print_pause('if your BMI is between 25 and 30 then you are overweight',2)
+#         print_pause('if your BMI is between 30 and 35 then you are obese',2)
+#         print_pause('if your BMI is over 35 then you are Severly obese',2)
+#         if BMI <= 18.5:
+#             print_pause('you are underweight',1)
+#         elif BMI > 18.5 and BMI <= 25 :
+#             print_pause('you are Healthy weight',1)
+#         elif BMI > 25 and BMI <= 30:
+#             print_pause('you are overweight',1)
+#         elif BMI >30 and BMI <= 35:
+#             print_pause('you are obese',1)
+#         elif BMI >35 :
+#             print_pause('You are Severly obese')
+#         end = close_app('the app','our app')
+#     else:
+#         print('hi')
+#     if end is T :
+#         break
+#     else:
+#         print('')
